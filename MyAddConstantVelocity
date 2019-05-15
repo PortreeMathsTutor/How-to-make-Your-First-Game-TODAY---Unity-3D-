@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AddPlayerControledVelocity : MonoBehaviour
+{
+    [SerializeField]
+    Vector3 v3SidewaysVelocityAdded;
+    [SerializeField]
+    KeyCode keySidePositive;
+    [SerializeField]
+    KeyCode keySideNegative;
+
+    [SerializeField]
+    Vector3 v3ForwardVelocityAdded;
+    [SerializeField]
+    KeyCode keyForwardPositive;
+    [SerializeField]
+    KeyCode keyForwardNegative;
+
+    [SerializeField]
+    Vector3 v3UpDownVelocityAdded;
+    [SerializeField]
+    KeyCode keyUpPositive;
+    [SerializeField]
+    KeyCode keyUpNegative;
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (Input.GetKey(keySidePositive)) { GetComponent<Rigidbody>().velocity += v3SidewaysVelocityAdded; }
+        if (Input.GetKey(keySideNegative)) { GetComponent<Rigidbody>().velocity -= v3SidewaysVelocityAdded; }
+        if (Input.GetKey(keyForwardPositive)) { GetComponent<Rigidbody>().velocity += v3ForwardVelocityAdded; }
+        if (Input.GetKey(keyForwardNegative)) { GetComponent<Rigidbody>().velocity -= v3ForwardVelocityAdded; }
+        if (Input.GetKey(keyUpPositive)) { GetComponent<Rigidbody>().velocity += v3UpDownVelocityAdded; }
+        if (Input.GetKey(keyUpNegative)) { GetComponent<Rigidbody>().velocity -= v3UpDownVelocityAdded; }
+    }
+}
